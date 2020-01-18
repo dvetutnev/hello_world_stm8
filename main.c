@@ -14,7 +14,7 @@ typedef struct SGPIO
 #define GPIOB ((GPIO*) GPIOB_BaseAddress)
 
 
-static void delay(uint32_t t) {
+void delay(uint32_t t) {
     while (t--)
         ;
 }
