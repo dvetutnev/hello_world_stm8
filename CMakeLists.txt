@@ -8,6 +8,6 @@ message(STATUS "CMAKE_FIND_ROOT_PATH: ${CMAKE_FIND_ROOT_PATH}")
 set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake ${CMAKE_MODULE_PATH})
 include(stm8flash)
 
-add_executable(${CMAKE_PROJECT_NAME} main.c)
-stm8flash(${CMAKE_PROJECT_NAME})
+add_executable(blink main.c)
+stm8flash(blink)
 
