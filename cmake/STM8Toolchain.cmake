@@ -10,4 +10,3 @@ set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
 
 set(CMAKE_C_FLAGS_INIT " -mstm8 --opt-code-size")
 set(CMAKE_EXE_LINKER_FLAGS_INIT "")
-

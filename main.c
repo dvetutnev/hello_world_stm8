@@ -19,6 +19,9 @@ void delay(uint32_t t) {
         ;
 }
 
+static uint8_t i;
+static uint32_t i2;
+
 void main(void) {
     GPIOB->DDR = 0xFF;
     GPIOB->CR1 = 0xFF;
