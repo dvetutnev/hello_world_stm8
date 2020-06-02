@@ -1,3 +1,4 @@
+#include "delay.h"
 #include <stdint.h>
 
 
@@ -13,11 +14,6 @@ typedef struct SGPIO
 #define GPIOB_BaseAddress 0x5005
 #define GPIOB ((GPIO*) GPIOB_BaseAddress)
 
-
-void delay(uint32_t t) {
-    while (t--)
-        ;
-}
 
 static uint8_t i;
 static uint32_t i2;

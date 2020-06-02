@@ -9,8 +9,13 @@ message(STATUS "CMAKE_FIND_ROOT_PATH: ${CMAKE_FIND_ROOT_PATH}")
 set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake ${CMAKE_MODULE_PATH})
 include(stm8flash)
 include(stm8size)
+include(AdjustAR)
+adjustAR(CMAKE_AR)
 
+add_library(delay STATIC delay.c)
 add_executable(blink main.c)
+target_link_libraries(blink delay)
+
 stm8flash(blink)
 stm8size(blink)
 
