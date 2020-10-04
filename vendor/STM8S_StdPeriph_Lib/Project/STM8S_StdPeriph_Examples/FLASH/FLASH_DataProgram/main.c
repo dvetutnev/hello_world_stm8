@@ -92,6 +92,11 @@ void main(void)
          (int)&__size__FLASH_ProgramBlock);
 #endif /*_RAISONANCE_*/
 
+/* SDCC patch: code execution from RAM not yet implemented for SDCC */
+#ifdef _SDCC_
+  #error code execution from RAM not yet implemented for SDCC
+#endif /*_SDCC_*/
+
 
   /* Clock configuration -----------------------------------------*/
   CLK_Config();
