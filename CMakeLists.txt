@@ -12,10 +12,14 @@ include(stm8size)
 include(AdjustAR)
 adjustAR(CMAKE_AR)
 
+set(DEVICE "STM8S103")
+include_directories(${CMAKE_SOURCE_DIR})
+
+add_subdirectory(vendor/STM8S_StdPeriph_Lib)
+
 add_library(delay STATIC delay.c)
 add_executable(blink main.c)
-target_link_libraries(blink delay)
+target_link_libraries(blink delay spl)
 
 stm8flash(blink)
 stm8size(blink)
-
