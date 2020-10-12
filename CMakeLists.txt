@@ -17,9 +17,11 @@ include_directories(${CMAKE_SOURCE_DIR})
 
 add_subdirectory(vendor/STM8S_StdPeriph_Lib)
 
-add_library(delay STATIC delay.c)
-add_executable(blink main.c)
-target_link_libraries(blink delay spl)
+add_executable(blink
+    main.c
+    stm8s_it.c
+)
+target_link_libraries(blink spl)
 
 stm8flash(blink)
 stm8size(blink)

@@ -1,32 +1,20 @@
-#include "delay.h"
-#include <stdint.h>
+#include <stm8s.h>
 
 
-typedef struct SGPIO
-{
-    volatile uint8_t ODR;
-    volatile uint8_t IDR;
-    volatile uint8_t DDR;
-    volatile uint8_t CR1;
-    volatile uint8_t CR2;
-} GPIO;
-
-#define GPIOB_BaseAddress 0x5005
-#define GPIOB ((GPIO*) GPIOB_BaseAddress)
+#define LED_GPIO_PORT  (GPIOB)
+#define LED_GPIO_PINS  (GPIO_PIN_ALL)
 
 
-static uint8_t i;
-static uint32_t i2;
+void delay(uint32_t t) {
+    while (t--)
+        ;
+}
+
 
 void main(void) {
-    GPIOB->DDR = 0xFF;
-    GPIOB->CR1 = 0xFF;
-    GPIOB->CR2 = 0xFF;
-
+    GPIO_Init(LED_GPIO_PORT, (GPIO_Pin_TypeDef)LED_GPIO_PINS, GPIO_MODE_OUT_PP_LOW_FAST);
     for (;;) {
-        GPIOB->ODR = 0xFF;
-        delay(10000UL);
-        GPIOB->ODR = 0;
+        GPIO_WriteReverse(LED_GPIO_PORT, (GPIO_Pin_TypeDef)LED_GPIO_PINS);
         delay(10000UL);
     }
 }
