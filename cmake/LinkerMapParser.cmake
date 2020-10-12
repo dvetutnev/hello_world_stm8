@@ -13,7 +13,7 @@ file(STRINGS ${PATH} content)
 set(ram_usage 0)
 set(rom_usage 0)
 
-set(hex8digit_re "[0-9A-B][0-9A-B][0-9A-B][0-9A-B][0-9A-B][0-9A-B][0-9A-B][0-9A-B]")
+set(hex8digit_re "[0-9A-F][0-9A-F][0-9A-F][0-9A-F][0-9A-F][0-9A-F][0-9A-F][0-9A-F]")
 foreach(line ${content})
     if(${line} MATCHES "^[A-Z]+[ \t]+(${hex8digit_re})[ \t]+${hex8digit_re} =[ \t]+([0-9]+)\\.")
         set(addr ${CMAKE_MATCH_1})
