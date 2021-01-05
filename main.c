@@ -12,10 +12,13 @@ void delay(uint32_t t) {
 
 
 void main(void) {
-    GPIO_Init(LED_GPIO_PORT, (GPIO_Pin_TypeDef)LED_GPIO_PINS, GPIO_MODE_OUT_PP_LOW_FAST);
+    GPIO_Init(LED_GPIO_PORT,
+              (GPIO_Pin_TypeDef)LED_GPIO_PINS,
+              GPIO_MODE_OUT_PP_LOW_FAST);
+
     for (;;) {
-        GPIO_WriteReverse(LED_GPIO_PORT, (GPIO_Pin_TypeDef)LED_GPIO_PINS);
+        GPIO_WriteReverse(LED_GPIO_PORT,
+                          (GPIO_Pin_TypeDef)LED_GPIO_PINS);
         delay(10000UL);
     }
 }
-
