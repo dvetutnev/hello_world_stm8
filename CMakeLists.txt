@@ -22,6 +22,11 @@ add_executable(blink
     stm8s_it.c
 )
 target_link_libraries(blink spl)
+target_compile_definitions(blink
+    PRIVATE
+        -DLED_GPIO_PORT=GPIOB
+        -DLED_GPIO_PINS=GPIO_PIN_ALL
+)
 
 stm8flash(blink)
 stm8size(blink)
