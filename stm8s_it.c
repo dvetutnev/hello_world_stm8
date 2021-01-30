@@ -484,6 +484,10 @@ INTERRUPT_HANDLER(TIM6_UPD_OVF_TRG_IRQHandler, 23)
   * @param  None
   * @retval None
   */
+ /*
+  *  Current frenq master clock: 16MHz HSI / 8 (default prescaler) = 2MHz
+  *  Irq overflow frenq: 2MHz / (256 * 128 (max prescaler)) = ~60Hz
+  */
  INTERRUPT_HANDLER(TIM4_UPD_OVF_IRQHandler, 23)
  {
      static uint8_t c = 0;
