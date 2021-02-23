@@ -1,7 +1,7 @@
 # Blink (hello world) for STM8
 # Dmitriy Vetutnev, 2019 - 2020
 
-cmake_minimum_required(VERSION 3.9)
+cmake_minimum_required(VERSION 3.0)
 project(blink C)
 
 message(STATUS "CMAKE_FIND_ROOT_PATH: ${CMAKE_FIND_ROOT_PATH}")
@@ -16,12 +16,10 @@ set(DEVICE "STM8S103")
 include_directories(${CMAKE_SOURCE_DIR})
 
 add_subdirectory(vendor/STM8S_StdPeriph_Lib)
+add_subdirectory(vendor/bugurtos)
 
-add_executable(blink
-    main.c
-    stm8s_it.c
-)
-target_link_libraries(blink spl)
+add_executable(blink main.c)
+target_link_libraries(blink spl bugurtos)
 target_compile_definitions(blink
     PRIVATE
         -DLED_GPIO_PORT=GPIOB
