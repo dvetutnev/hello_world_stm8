@@ -1,7 +1,7 @@
 # STM8S/A Standard Peripherals Library
 # Dmitriy Vetutnev, 2020
 
-cmake_minimum_required(VERSION 3.9)
+cmake_minimum_required(VERSION 3.3)
 project(spl C)
 
 set(SUPPORT_DEVICES
