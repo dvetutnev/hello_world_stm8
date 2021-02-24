@@ -495,7 +495,7 @@ INTERRUPT_HANDLER(TIM6_UPD_OVF_TRG_IRQHandler, 23)
      c++;
      if (c == 15) {
          GPIO_WriteReverse(LED_GPIO_PORT,
-                           (GPIO_Pin_TypeDef)LED_GPIO_PINS);
+                           (GPIO_Pin_TypeDef)LED_GPIO_PIN);
          c = 0;
      }
 

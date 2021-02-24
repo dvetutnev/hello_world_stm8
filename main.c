@@ -3,7 +3,7 @@
 
 int main(void) {
     GPIO_Init(LED_GPIO_PORT,
-              (GPIO_Pin_TypeDef)LED_GPIO_PINS,
+              (GPIO_Pin_TypeDef)LED_GPIO_PIN,
               GPIO_MODE_OUT_PP_LOW_FAST);
 
     TIM4_TimeBaseInit(TIM4_PRESCALER_128, TIM4_ARR_RESET_VALUE);
